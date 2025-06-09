@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Dossier Damien - Clameur & Échos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #2b3a36;
+    color: #cbd5d1;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 50px #1b2824;
+  }
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1.8em;
+    color: #a0d8b3;
+    text-shadow: 0 0 10px #8bdba0aa;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  li {
+    background: #394a47;
+    border-left: 6px solid #a0d8b3;
+    padding: 18px 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+  }
+  li:hover {
+    background: #a0d8b333;
+    border-color: #b3e6bc;
+    transform: translateX(6px);
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: #d1e9d6;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: block;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a.back {
+    margin-top: 50px;
+    display: inline-block;
+    background: #4d5f59;
+    color: #a0d8b3;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px #a0d8b366;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-align: center;
+  }
+  a.back:hover {
+    background: #a0d8b3;
+    color: #2b3a36;
+    text-decoration: none;
+    box-shadow: 0 0 25px #a0d8b3cc;
+  }
+  @media (max-width: 600px) {
+    body {
+      padding: 20px;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 2.4rem;
+    }
+    a, li {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>Dossier Damien</h1>
+  <ul>
+    <li><a href="damien_casier.html">Casier Judiciaire complet</a></li>
+    <li><a href="damien_article1.html">Un homme fait dérailler un train</a></li>
+    <li><a href="damien_article2.html">L'accident de train cause la mort de nombreux passagers</a></li>
+    <li><a href="damien_article2.html">Le saboteur du 14 novembre s’évade de sa cellule</a></li>
+  </ul>
+  <a href="index.html" class="back">← Retour</a>
+</body>
+</html>

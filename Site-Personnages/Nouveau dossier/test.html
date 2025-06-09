@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Dossier Olive - Fichiers corrompus</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  body {
+    background-color: #000;
+    color: #0ff;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    user-select: none;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #0ff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  #progress-bar {
+    width: 0;
+    height: 12px;
+    background: linear-gradient(90deg, #0ff, #0cc);
+    border-radius: 6px;
+    box-shadow:
+      0 0 10px #0ff,
+      inset 0 0 5px #0cc;
+    margin-bottom: 20px;
+    transition: width 0.1s linear;
+  }
+
+  #console {
+    background-color: #001f22;
+    padding: 15px;
+    border-radius: 8px;
+    height: 300px;
+    overflow-y: auto;
+    box-shadow:
+      inset 0 0 15px #0cc;
+    font-size: 1rem;
+    line-height: 1.4;
+    user-select: text;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #0ff;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  a.back {
+    display: block;
+    margin: 40px auto 0;
+    width: fit-content;
+    padding: 8px 14px;
+    background: #0ff;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #0ff;
+    user-select: text;
+    text-align: center;
+  }
+  a.back:hover {
+    background: #0cc;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Dossier Olive - Fichiers corrompus</h1>
+
+  <div class="container">
+    <div id="progress-bar"></div>
+    <div id="console"></div>
+  </div>
+
+  <a href="index.html" class="back">← Retour</a>
+
+  <script>
+    const progressBar = document.getElementById('progress-bar');
+    const consoleEl = document.getElementById('console');
+    const container = document.querySelector('.container');
+
+    const logs = [
+      "Initialisation du système...",
+      "Analyse des fichiers en cours...",
+      "Erreur de lecture sur le secteur 0x0034F1",
+      "Fragmentation détectée sur le disque dur",
+      "Données corrompues dans le fichier \"user_data.bin\"",
+      "Tentative de récupération des blocs endommagés...",
+      "Bloc 0x5A3C introuvable ou illisible",
+      "Opération critique interrompue",
+      "Perte de communication avec le périphérique USB",
+      "Accès refusé au fichier système \"config.sys\"",
+      "Reprise du chargement...",
+      "Lecture partielle sur le cluster 0x0AB9",
+      "CRC mismatch détecté dans le secteur 0x00FF12",
+      "Délai d'attente dépassé pour la réponse du disque",
+      "Requête d'arrêt de la tâche en cours",
+      "Données illisibles - segment endommagé",
+      "Analyse terminée avec erreurs critiques",
+      "Chargement interrompu - données irrécupérables",
+      "Rapport d'erreurs généré automatiquement",
+      "Veuillez contacter l'administrateur système."
+    ];
+
+    let progress = 0;
+    let logIndex = 0;
+
+    function getCurrentTimestamp() {
+      const now = new Date();
+      const pad = (n) => n.toString().padStart(2, '0');
+      const day = pad(now.getDate());
+      const month = pad(now.getMonth() + 1);
+      const year = now.getFullYear();
+      const hours = pad(now.getHours());
+      const minutes = pad(now.getMinutes());
+      const seconds = pad(now.getSeconds());
+      return `[${day}/${month}/${year} ${hours}:${minutes}:${seconds}]`;
+    }
+
+    function updateProgress() {
+      if(progress < 100) {
+        progress++;
+        progressBar.style.width = progress + '%';
+
+        if(progress % 5 === 0 && logIndex < logs.length) {
+          appendLog(logs[logIndex]);
+          logIndex++;
+        }
+
+        setTimeout(updateProgress, 100);
+      } else {
+        showErrorMessage();
+        continueLogs();
+      }
+    }
+
+    function appendLog(text) {
+      const line = document.createElement('div');
+      line.textContent = `${getCurrentTimestamp()} ${text}`;
+      consoleEl.appendChild(line);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+
+    function continueLogs() {
+      if(logIndex < logs.length) {
+        appendLog(logs[logIndex]);
+        logIndex++;
+        setTimeout(continueLogs, 200);
+      } else {
+        const cursor = document.createElement('span');
+        cursor.classList.add('cursor');
+        consoleEl.lastChild.appendChild(cursor);
+      }
+    }
+
+    function showErrorMessage() {
+      const errorMsg = document.createElement('div');
+      errorMsg.textContent = 'ERREUR CRITIQUE : ÉCHEC DE CHARGEMENT DU SYSTÈME';
+      errorMsg.style.color = '#ff0000';
+      errorMsg.style.fontSize = '1.8rem';
+      errorMsg.style.fontWeight = '700';
+      errorMsg.style.textAlign = 'center';
+      errorMsg.style.marginTop = '20px';
+      container.appendChild(errorMsg);
+    }
+
+    updateProgress();
+  </script>
+
+</body>
+</html>

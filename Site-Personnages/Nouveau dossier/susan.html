@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Dossier Susan - Clameur & Échos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Roboto Slab', serif;
+    background: #1a1f28;
+    color: #d6d9e0;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px 40px;
+    box-shadow: 0 0 50px #111820 inset;
+    border-radius: 12px;
+  }
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1.5em;
+    color: #ff6b6b;
+    text-shadow: 0 0 12px #ff6b6baa;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  li {
+    background: #2a2f3a;
+    border-left: 6px solid #ff6b6b;
+    padding: 18px 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+  }
+  li:hover {
+    background: #ff6b6b33;
+    border-color: #ff8a8a;
+    transform: translateX(6px);
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: #f0d3d3;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: block;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a.back {
+    margin-top: 50px;
+    display: inline-block;
+    background: #3f2c2c;
+    color: #ff8a8a;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px #ff6b6b66;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-align: center;
+  }
+  a.back:hover {
+    background: #ff6b6b;
+    color: #1a1f28;
+    text-decoration: none;
+    box-shadow: 0 0 18px #ff6b6bcc;
+  }
+  @media (max-width: 600px) {
+    body {
+      padding: 20px;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    a, li {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>Dossier Susan</h1>
+  <ul>
+    <li><a href="susan_casier.html">Casier Judiciaire complet</a></li>
+    <li><a href="susan_article1.html">Un drame dans une petite famille</a></li>
+    <li><a href="susan_evasion.html">Évasion spectaculaire : la meurtrière de Clamart introuvable</a></li>
+  </ul>
+  <a href="index.html" class="back">← Retour</a>
+</body>
+</html>

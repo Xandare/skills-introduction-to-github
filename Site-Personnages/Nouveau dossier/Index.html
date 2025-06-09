@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dossiers Confidentiels</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #d0d8e8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px 80px;
+      overflow-x: hidden;
+    }
+
+    /* Title */
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin: 0 0 60px 0; /* espace sous le titre */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7bdfff;
+  text-shadow: 0 0 15px #4db8ffaa;
+  user-select: none;
+}
+
+h2 {
+  font-weight: 400;
+  font-style: italic;
+  margin: 10px 0 50px;
+  font-size: 1.1rem;
+  color: #a3b1c0;
+  letter-spacing: 0.07em;
+  user-select: none;
+  text-align: center; /* optionnel, si tu veux le centrer */
+}
+
+/* Container dossiers */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+  gap: 30px 40px;
+  width: 100%;
+  max-width: 1000px; /* ou 800px selon ce que tu préfères */
+}
+
+
+
+
+    /* Carte dossier */
+    li {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.37),
+        inset 0 0 12px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    li:hover, li:focus-within {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow:
+        0 15px 35px 0 rgba(0, 123, 255, 0.7),
+        inset 0 0 15px rgba(123, 212, 255, 0.3);
+      outline: none;
+    }
+
+    /* Lien */
+    a {
+      color: #7bdfff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-top: 20px;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    a:hover, a:focus {
+      color: #ade8ff;
+      outline: none;
+    }
+
+    /* Image */
+    img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      user-select: none;
+      max-height: 150px;
+      object-fit: cover;
+    }
+
+    /* Responsive smaller */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      ul {
+        grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+        gap: 20px 25px;
+      }
+      a {
+        font-size: 1.1rem;
+        margin-top: 15px;
+      }
+      img {
+        max-height: 120px;
+      }
+    @media (max-width: 480px) {
+  ul {
+    grid-template-columns: 1fr;  /* une seule colonne */
+    max-width: 320px;            /* largeur adaptée au téléphone */
+  }
+  </style>
+</head>
+<body>
+  <h1>Dossiers Confidentiels</h1> 
+  <ul>
+    <li tabindex="0">
+      <a href="marc.html" aria-label="Dossier Marc">
+        <img src="marc_dossier.png" alt="Dossier Marc" />
+       </a>
+    </li>
+    <li tabindex="0">
+      <a href="susan.html" aria-label="Dossier Susan">
+        <img src="susan_dossier.png" alt="Dossier Susan" />
+      </a>
+    </li>
+    <li tabindex="0">
+      <a href="damien.html" aria-label="Dossier Damien">
+        <img src="damien_dossier.png" alt="Dossier Damien" />
+      </a>
+    </li>
+    <li tabindex="0">
+      <a href="olive.html" aria-label="Dossier Olive">
+        <img src="olive_dossier.png" alt="Dossier Olive" />
+      </a>
+    </li>
+  </ul>
+</body>
+</html>
